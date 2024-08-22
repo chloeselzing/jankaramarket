@@ -1,0 +1,9 @@
+[
+  { "image": "/groceries/gro1.jpeg", "title": "Ketchup", "price": 3500 },
+  { "image": "/groceries/gro2.jpeg", "title": "Onion", "price": 3500 },
+  { "image": "/groceries/gro3.jpeg", "title": "Nutella", "price": 3500 },
+  { "image": "/groceries/gro4.jpeg", "title": "Pringles", "price": 3500 },
+  { "image": "/groceries/gro5.jpeg", "title": "Nescafe", "price": 3500 },
+  { "image": "/groceries/gro8.jpeg", "title": "Knorr", "price": 3500 },
+  { "image": "/groceries/gro9.jpeg", "title": "Coconut", "price": 3500 }
+]

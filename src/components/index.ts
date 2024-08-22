@@ -1,0 +1,17 @@
+export { default as Nav } from "./Nav";
+export { default as Btn } from "./Btn";
+export { default as LatestProducts } from "./LatestProducts";
+export { default as Card } from "./Card";
+export { default as Heading } from "./Heading";
+export { default as Advert } from "./Advert";
+export { default as SideBar } from "./SideBar";
+export { default as BarOption } from "./BarOption";
+export { default as Banner } from "./Banner";
+export { default as MainSection } from "./MainSection";
+export { default as Products } from "./Products";
+export { default as Footer } from "./Footer";
+export { default as FooterLinks } from "./FooterLinks";
+export { default as DownloadBtn } from "./DownloadBtn";
+export { default as NewsLetter } from "./NewsLetter";
+export { default as Socials } from "./Socials";
+export { default as SlideShow } from "./SlideShow";
