@@ -9,8 +9,9 @@ type ButtonProps = {
   borderColor?: string;
   textColor?: string;
   minw?: string;
-  hidden?:string
+  hidden?: string;
   icon?: ReactElement;
+  onClick?: () => void;
 };
 
 const Button: React.FC<ButtonProps> = ({
@@ -23,17 +24,8 @@ const Button: React.FC<ButtonProps> = ({
   icon,
   minw,
   hidden,
+  onClick
 }) => {
-  const [isClicked, setIsClicked] = useState(false);
-
-  const handleClick = () => {
-    setIsClicked(true);
-    setTimeout(() => {
-      // window.location.href = href;
-      setIsClicked(false);
-    }, 200);
-  };
-
   return (
     <button
       className={`custom-button ${color || ""} ${textColor || "text-white"}  ${
@@ -41,7 +33,7 @@ const Button: React.FC<ButtonProps> = ({
       } ${borderColor || ""} ${
         minw || "lg:min-w-[80px]"
       }  md:w-[70px] h-[40px] hover:bg-[#f97416e5] hover:text-white px-[5px] gap-[5px] rounded md:text-[.7rem] lg:text-[15px] flex place-content-center items-center font-semibold`}
-      onClick={handleClick}
+      onClick={onClick}
     >
       <span className={`lg:grid md:grid ${hidden}`}>{text}</span>
       <>{icon}</>

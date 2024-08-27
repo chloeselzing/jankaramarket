@@ -14,3 +14,4 @@ const Advert = (props: Props) => {
 };
 
 export default Advert;
+  

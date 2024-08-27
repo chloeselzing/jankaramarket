@@ -1,14 +1,22 @@
+"use client";
 import Image from "next/image";
 import React, { FC } from "react";
+import { useCartStore } from "@/store";
 
 type CardProps = {
-  image: string;
+  id: number;
   title: string;
   price: number;
-  onClick?: () => void;
+  image: string;
 };
 
-const Card: FC<CardProps> = ({ image, title, price, onClick }) => {
+const Card: FC<CardProps> = ({ id, image, title, price }) => {
+  const addItem = useCartStore((state) => state.addItem);
+
+  const handleAddToCart = () => {
+    addItem({ id, image: image, name: title, price, quantity: 1 });
+  };
+
   return (
     <div className="product-card bg-white rounded-lg shadow-md p-4">
       <Image
@@ -22,10 +30,10 @@ const Card: FC<CardProps> = ({ image, title, price, onClick }) => {
         <h3 className="text-lg font-bold mb-2">{title}</h3>
         <p className="text-gray-500 mb-4">₦{price.toFixed(2)}</p>
         <button
-          onClick={onClick}
+          onClick={handleAddToCart}
           className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full"
         >
-          ADD TO CART{" "}
+          ADD TO CART
         </button>
       </div>
     </div>

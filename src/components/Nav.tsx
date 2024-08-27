@@ -8,11 +8,17 @@ import * as Components from "./index";
 import { GiShoppingCart } from "react-icons/gi";
 import { IoPersonSharp } from "react-icons/io5";
 import { IoIosArrowDown } from "react-icons/io";
+import { ToastContainer } from "react-toastify";
+import { useCartStore } from "@/store";
+import CartDropdown from "./CartDropDown";
 
 type Props = {};
 
 const Nav = (props: Props) => {
+  const items = useCartStore((state) => state.items);
+
   const [isOpen, setIsOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
     event.stopPropagation(); // Stop event from bubbling up
@@ -21,6 +27,13 @@ const Nav = (props: Props) => {
 
   const handleClose = () => {
     setIsOpen(false);
+  };
+
+  const closeCart = () => {
+    setIsCartOpen(false);
+  };
+  const toggleCart = () => {
+    setIsCartOpen((prevState) => !prevState);
   };
 
   useEffect(() => {
@@ -80,7 +93,10 @@ const Nav = (props: Props) => {
               color="bg-primary"
               hidden="hidden"
               icon={<GiShoppingCart className="text-[20px]" />}
+              onClick={toggleCart}
             />
+            {isCartOpen && <CartDropdown onClose={closeCart} />}
+
             <div
               className="flex items-center w-[50px] gap-1 px-1 dropdown-container"
               onClick={handleClick}
